@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import react.mongo.domain.User;
 import react.mongo.repository.UserRepository;
 
+import java.util.UUID;
+
 @RestController
 public class UserController {
 
@@ -16,6 +18,9 @@ public class UserController {
 
     @PostMapping("/users")
     public void saveUser( @RequestBody User user) {
+        if(user.getKey()== null){
+            user.setKey(UUID.randomUUID().toString());
+        }
         repository.save(user);
     }
 

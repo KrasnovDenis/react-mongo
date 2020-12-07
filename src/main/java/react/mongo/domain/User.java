@@ -10,7 +10,7 @@ import java.util.UUID;
 @Data @Builder
 public class User {
 
-  private final @Id @Default String key = UUID.randomUUID().toString();
+  private @Id @Default String key = UUID.randomUUID().toString();
   private String name;
   private String doubt;
   private String timing;
